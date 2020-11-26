@@ -23,18 +23,19 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 //Route::get('/articles', 'Http/Controllers/ArticleController@index');
 Route::get('/articles', [ArticleController::class, 'index']);
-
+/*
 Route::get('/trip', function () {
     $headers = array('Content-Type' => 'application/json; charset=utf-8');
     $users = DB::table(‘users’)->get();
     return Response::json($users, 200, $headers, JSON_UNESCAPED_UNICODE);
-    });
+    });*/
 
 
 
-Route::get('/trip', [TripController::class, 'index']);
+Route::get('/trip/{page}', [TripController::class, 'index']);
+//Route::get('/trip/{page}', 'TripController@index')->name('page');
 //Route::get('/articles/{id}', 'ArticleController@show');
-Route::get('/articles/{id}', [ArticleController::class, 'show']);
+/*Route::get('/articles/{id}', [ArticleController::class, 'show']);
 Route::post('articles', 'ArticleController@store');
 Route::put('/articles/{id}', 'ArticleController@update');
-Route::delete('/articles/{id}', 'ArticleController@delete');
+Route::delete('/articles/{id}', 'ArticleController@delete');*/
